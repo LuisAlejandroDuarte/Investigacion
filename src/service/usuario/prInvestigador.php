@@ -1,6 +1,6 @@
 <?php
   set_time_limit(0);
-  require_once("config.php");  
+  require_once("/config.php");  
   $d= json_decode(file_get_contents("php://input"),TRUE); 
 
   $Accion = $d['Accion'];  
@@ -27,7 +27,7 @@
     }
    }
 
-    if ($Accion=="ValidarIdentificacion")
+    if ($Accion=="login")
     {
      $SQL="SELECT COUNT(*) As Cuantos FROM sgi_user WHERE USE_IDEN = '" . $d['IdUser'] . "'";
  

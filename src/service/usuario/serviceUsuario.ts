@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Usuario } from 'src/entidad/usuario/entidad.usuario';
+import { Investigador } from 'src/entidad/investigador/entidad.investigador';
 import { Observable } from 'rxjs';
 
 
@@ -16,9 +16,9 @@ export class UsusarioService {
         public http: HttpClient
     ){}
 
-    getListUsuarios(instrumento:Usuario) : Observable<Usuario>{
+    getListUsuarios(investigador:Investigador) : Observable<Investigador>{
                    
-       return this.http.post<Usuario>('app/usuario/prUsuario.php',JSON.stringify(instrumento), httpOptions);
+       return this.http.post<Investigador>('app/usuario/prInvestigador.php',JSON.stringify(investigador), httpOptions);
      }  
 
 }
