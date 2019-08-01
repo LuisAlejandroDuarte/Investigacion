@@ -9,16 +9,23 @@ const httpOptions = {
   };
 
 @Injectable()
-export class UsusarioService {
+export class InvestigadorService {
 
 
     constructor(
         public http: HttpClient
     ){}
 
-    getListUsuarios(investigador:Investigador) : Observable<Investigador>{
+    getValidar(investigador:Investigador) : Observable<Investigador>{
+                   
+      return this.http.post<Investigador>('app/usuario/prInvestigador.php',JSON.stringify(investigador), httpOptions);
+    }
+
+    getInvestigador(investigador:Investigador) : Observable<Investigador>{
                    
        return this.http.post<Investigador>('app/usuario/prInvestigador.php',JSON.stringify(investigador), httpOptions);
      }  
+
+ 
 
 }

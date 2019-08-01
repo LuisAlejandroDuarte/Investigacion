@@ -17,6 +17,5 @@ export class Investigador
     inv_pass:string;
     inv_tipo:number;
     inv_codi_usua:number;
-    inv_tica_codi:number;
-    
+    inv_tica_codi:number;    
 }

@@ -45,7 +45,7 @@
 
      if ($Accion=="ValidarUsuario")
      {
-         $SQL="SELECT COUNT(*) As Cuantos FROM sgi_user WHERE USE_USUA= '" . $d['IdUsua'] . "'";
+         $SQL="SELECT COUNT(*) As Cuantos FROM sgi_user WHERE USE_USUA=" . $d['IdUsua'] . "'";
    
          $resultArray = array(); 
          $resultado = mysqli_query($conexion,$SQL);
