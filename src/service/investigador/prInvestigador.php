@@ -1,14 +1,32 @@
 <?php
   set_time_limit(0);
   require_once("/config.php");  
-  $d= json_decode(file_get_contents("php://input"),TRUE); 
+  $data= json_decode(file_get_contents("php://input"),TRUE); 
 
-  $Accion = $d['Accion'];  
+  $Accion = $data['accion'];  
 
   $conexion= mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
   if (mysqli_connect_errno()) {
      echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
+
+
+  
+  if ($Accion=="login")
+  {
+      $SQL="SELECT * FROM sgi_investigador WHERE USE_IDEN = " . $data['inv_user'] . " AND " ;
+
+      $resultArray = array(); 
+      $resultado = mysqli_query($conexion,$SQL);
+      if (mysqli_num_rows($resultado)==0 )                        
+         $resultArray[]= mysqli_fetch_assoc($resultado);                                                            
+      else
+      {
+      while ($tuple= mysqli_fetch_assoc($resultado)) {                        
+            $resultArray[] = $tuple;         
+         }               
+      }
+ }
 
   if ($Accion=="SELECT")
    {
@@ -27,21 +45,6 @@
     }
    }
 
-    if ($Accion=="login")
-    {
-     $SQL="SELECT COUNT(*) As Cuantos FROM sgi_user WHERE USE_IDEN = '" . $d['IdUser'] . "'";
- 
-     $resultArray = array(); 
-      $resultado = mysqli_query($conexion,$SQL);
-     if (mysqli_num_rows($resultado)==0 )                        
-         $resultArray[]= mysqli_fetch_assoc($resultado);                                                            
-     else
-     {
-      while ($tuple= mysqli_fetch_assoc($resultado)) {                        
-            $resultArray[] = $tuple;         
-         }               
-     }
-   }
 
      if ($Accion=="ValidarUsuario")
      {

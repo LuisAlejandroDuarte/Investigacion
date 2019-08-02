@@ -18,12 +18,12 @@ export class InvestigadorService {
 
     getValidar(investigador:Investigador) : Observable<Investigador>{
                    
-      return this.http.post<Investigador>('app/usuario/prInvestigador.php',JSON.stringify(investigador), httpOptions);
+      return this.http.post<Investigador>('app/service/investigador/prInvestigador.php',JSON.stringify(investigador), httpOptions);
     }
 
     getInvestigador(investigador:Investigador) : Observable<Investigador>{
                    
-       return this.http.post<Investigador>('app/usuario/prInvestigador.php',JSON.stringify(investigador), httpOptions);
+       return this.http.post<Investigador>('app/service/investigador/prInvestigador.php',JSON.stringify(investigador), httpOptions);
      }  
 
  

@@ -4,18 +4,34 @@ define('DB_NAME','grupogua_investigador');
 define('DB_USER','grupogua_jmedicru');
 define('DB_PASS','MbCj199803#');
 
-function connect()
-{
-  $connect = mysqli_connect(DB_SERVER ,DB_USER ,DB_PASS ,DB_NAME);
 
-  if (mysqli_connect_errno($connect)) {
-    die("Failed to connect:" . mysqli_connect_error());
-  }
+  function connect()
+    {
+      $connect = mysqli_connect(DB_SERVER ,DB_USER ,DB_PASS ,DB_NAME);
 
-  mysqli_set_charset($connect, "utf8");
+      if (mysqli_connect_errno($connect)) {
+        die("Failed to connect:" . mysqli_connect_error());
+      }
 
-  return $connect;
-}
+      mysqli_set_charset($connect, "utf8");
 
+      return $connect;
+    }
 
+  function executeSql($sql)
+  {    
+    $resultArray = array(); 
+    $conexion = connect();
+    $resultado = mysqli_query($conexion,$SQL);
+    if (mysqli_num_rows($resultado)==0 )                        
+       $resultArray[]= mysqli_fetch_assoc($resultado);                                                            
+    else
+    {
+    while ($tuple= mysqli_fetch_assoc($resultado)) {                        
+          $resultArray[] = $tuple;         
+       }               
+    }
+
+    return $resultado;
+  }    
 ?>
