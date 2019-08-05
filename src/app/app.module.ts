@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InvestigadorComponent } from './investigador/investigador.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedAlerta } from './alerta/alerta.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,FormsModule,
     AppRoutingModule,
-    HttpClientModule 
+    HttpClientModule,
+    SharedAlerta
   ],
   providers: [],
   bootstrap: [AppComponent]

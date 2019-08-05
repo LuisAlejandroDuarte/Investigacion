@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Investigador } from 'src/entidad/investigador/entidad.investigador';
 import { Observable } from 'rxjs';
+import { Usuario } from 'src/entidad/usuario/entidad.usuario';
 
 
 const httpOptions = {
@@ -16,9 +17,10 @@ export class InvestigadorService {
         public http: HttpClient
     ){}
 
-    getValidar(investigador:Investigador) : Observable<Investigador>{
+    getValidar(usuario:Usuario) : Observable<Usuario>{
                    
-      return this.http.post<Investigador>('app/service/investigador/prInvestigador.php',JSON.stringify(investigador), httpOptions);
+      const headers = new HttpHeaders().set('content-type', 'application/json');  
+      return this.http.post<Usuario>('Investigacion/src/service/investigador/prInvestigador.php',JSON.stringify(usuario), {headers});
     }
 
     getInvestigador(investigador:Investigador) : Observable<Investigador>{

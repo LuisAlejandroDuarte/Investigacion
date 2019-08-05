@@ -1,28 +1,22 @@
 <?php
-define('DB_SERVER','localhost');
+define('DB_SERVER','127.0.0.1');
 define('DB_NAME','grupogua_investigador');
 define('DB_USER','grupogua_jmedicru');
 define('DB_PASS','MbCj199803#');
 
+ class DataBase {
 
-  function connect()
-    {
-      $connect = mysqli_connect(DB_SERVER ,DB_USER ,DB_PASS ,DB_NAME);
+  private static $db;
+  private $connection;
 
-      if (mysqli_connect_errno($connect)) {
-        die("Failed to connect:" . mysqli_connect_error());
-      }
 
-      mysqli_set_charset($connect, "utf8");
 
-      return $connect;
-    }
-
-  function executeSql($sql)
-  {    
+  public function executeSql($sql)
+  {       
+    $this->connection = new mysqli(DB_SERVER ,DB_USER ,DB_PASS ,DB_NAME);
     $resultArray = array(); 
-    $conexion = connect();
-    $resultado = mysqli_query($conexion,$SQL);
+
+    $resultado = mysqli_query($this->connection,$sql);
     if (mysqli_num_rows($resultado)==0 )                        
        $resultArray[]= mysqli_fetch_assoc($resultado);                                                            
     else
@@ -31,7 +25,12 @@ define('DB_PASS','MbCj199803#');
           $resultArray[] = $tuple;         
        }               
     }
-
-    return $resultado;
+    $this->connection->close();
+    return $resultArray;
   }    
+
+}
+
+
+  
 ?>

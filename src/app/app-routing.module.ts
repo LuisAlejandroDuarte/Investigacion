@@ -5,7 +5,7 @@ import { InvestigadorService } from 'src/service/investigador/serviceInvestigado
 
 export const AppRoutes: Routes = [
   {
-    path: 'usuario',
+    path: 'investigador',
     component: InvestigadorComponent    
   }]
 
