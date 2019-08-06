@@ -14,7 +14,7 @@ export class AlertaComponent implements OnInit {
     @Output() public boton1 = new EventEmitter<Mensaje>();
     @Output() public boton2 = new EventEmitter<Mensaje>();
    
-    @ViewChild('modalAlerta') modalAlert: ElementRef; 
+    @ViewChild('modalAlerta',null) modalAlert: ElementRef; 
     
     constructor(private render:Renderer2) {
 

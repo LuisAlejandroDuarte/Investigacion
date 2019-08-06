@@ -1,17 +1,100 @@
-<app-alerta [dataAlerta]="mensaje" (boton1)="onClicBoton1($event)" (boton2)="onClicBoton2($event)"></app-alerta>
 
-<div class="form-signin">
-    <div style="text-align: center!important">
+<div class="container">
+  <div class="row" style="margin-top:3%">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          INVESTIGADOR
+        </div>
+        <div class="card-body">      
+            <ngb-tabset>
+              <ngb-tab>
+                  <ng-template ngbTabTitle><fa-icon [icon]="faUser"></fa-icon>DATOS</ng-template>
+                <ng-template ngbTabContent>
+                    <div class="row">
+                        <div class="col-md-2">                  
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tipo Documento</label>
+                                <select class="form-control form-control-sm" id="exampleFormControlSelect1"></select>
+                              </div>       
+                        </div>                  
+                         <div class="col-md-2">                  
+                            <div class="form-group">
+                                <label>* Identificaci&oacute;n</label>  
+                                <input class="form-control form-control-sm" id="exampleFormControlSelect1" />
+                              </div>                               
+                        </div>                  
+                         <div class="col-md-4">       
+                            <div class="form-group">
+                                <label>* Nombres</label>                                 
+                                <input class="form-control form-control-sm" id="exampleFormControlSelect1" />
+                              </div>                 
+                          
+                        </div>                  
+                         <div class="col-md-4">                  
+                            <div class="form-group">
+                                <label>* Apellidos</label>                                 
+                                <input class="form-control form-control-sm" id="exampleFormControlSelect1" />
+                              </div>                              
+                        </div>                  
+                     </div>
+                    
+                     <div class="row">
+
     
-        <div class="card border-primary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Investigadores</div>
-            <div class="card-body text-primary">              
-                <label>Usuario</label>
-                <input  [(ngModel)]="user" class="form-control" placeholder="Usuario" />
-                <label>Clave</label>
-                <input  [(ngModel)]="pass" type="password"  class="form-control" placeholder="Clave"  />                
-            </div> 
-            <button type="button" class="btn btn-primary" style="margin: 10px" (click)="onClickValidarUsuario($event)">Inicar</button>      
-            </div>   
+
+                        <div class="col-md-4" style="margin-top:15px">
+                   
+                           <label>* Fecha Nacimiento</label>               
+                   
+                         </div>  
+                   
+                        <div class="col-md-4" style="margin-top:15px">
+                   
+                           <label>* Tel&#233;fono</label>               
+                   
+                         </div> 
+                   
+                         <div class="col-md-4" style="margin-top:15px">
+                   
+                           <label>* E-mail (example@unad.edu.co)</label> 
+                   
+                   
+                   
+                         </div>  
+                   
+                     </div>  
+                    
+                </ng-template>
+              </ngb-tab>
+              <ngb-tab>
+                <ng-template ngbTabTitle><b>Fancy</b> title</ng-template>
+                <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+                  <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
+                  craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl
+                  cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia
+                  yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean
+                  shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero
+                  sint qui sapiente accusamus tattooed echo park.</p>
+                </ng-template>
+              </ngb-tab>
+              <ngb-tab title="Disabled">
+                <ng-template ngbTabContent>
+                  <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+                </ng-template>
+              </ngb-tab>
+            </ngb-tabset>
+        </div>
+        <div class="card-footer text-muted">
+       
+        </div>
+      </div> 
+
     </div>
+
+  </div>
 </div>
+
+
+
+
