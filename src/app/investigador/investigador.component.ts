@@ -17,10 +17,18 @@ declare const $: any;
 export class InvestigadorComponent {
   faUser = faUser;
   faCalendar =faCalendar;
+  fechaNacimiento :{};
   constructor(   
     ){}
   
     public ngOnInit() {
+      
+      this.fechaNacimiento = {
+        "year": 2019,
+        "month": 6,
+        "day": 24
+      }
+
       $('#iconoEspera').hide();
     }
 }

@@ -28,7 +28,10 @@
                                   <div class="col-sm">                  
                                       <div class="form-group">
                                           <label for="exampleInputEmail1">Tipo Documento</label>
-                                          <select class="form-control form-control-sm" id="exampleFormControlSelect1"></select>
+                                          <select class="form-control form-control-sm">
+                                            <option>Seleccione ...</option>
+                                        
+                                          </select>
                                         </div>       
                                   </div>                  
                                    <div class="col-sm">                  
@@ -56,7 +59,15 @@
                                   <div class="col-sm">                   
                                       <div class="form-group">
                                           <label>* Fecha Nacimiento</label>                                 
-                                          <input class="form-control form-control-sm" id="exampleFormControlSelect1" />
+                                          <div class="input-group">
+                                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                                   name="dp" [(ngModel)]="fechaNacimiento" ngbDatepicker #d="ngbDatepicker">
+                                            <div class="input-group-append">
+                                              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                                <fa-icon [icon]="faCalendar"></fa-icon>
+                                              </button>
+                                            </div>
+                                          </div>
                                       </div>   
                                    </div>                     
                                   <div class="col-sm">                   
@@ -78,25 +89,33 @@
                           <div class="col-sm">
                              <div class="form-group">
                                 <label>* Centro</label>               
-                                <input class="form-control form-control-sm" id="exampleFormControlSelect1" />
+                                <select class="form-control form-control-sm">
+                                  <option>Seleccione ...</option>
+                                </select>
                              </div>                                                     
                           </div>  
                           <div class="col-sm">
                               <div class="form-group">
                                  <label>* Zona</label>               
-                                 <input class="form-control form-control-sm" id="exampleFormControlSelect1" />
+                                 <select class="form-control form-control-sm">
+                                  <option>Seleccione ...</option>
+                                </select>
                               </div>                                                     
                            </div>  
                            <div class="col-sm">
                               <div class="form-group">
                                  <label>* Programa</label>               
-                                 <input class="form-control form-control-sm" id="exampleFormControlSelect1" />
+                                 <select class="form-control form-control-sm">
+                                  <option>Seleccione ...</option>
+                                </select>
                               </div>                                                     
                            </div>  
                            <div class="col-sm">
                               <div class="form-group">
                                  <label>* Escuela</label>               
-                                 <input class="form-control form-control-sm" id="exampleFormControlSelect1" />
+                                 <select class="form-control form-control-sm">
+                                  <option>Seleccione ...</option>
+                                </select>
                               </div>                                                     
                            </div>                                                           
                         </div>    
