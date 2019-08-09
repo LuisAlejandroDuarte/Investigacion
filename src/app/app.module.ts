@@ -9,6 +9,11 @@ import { SharedAlerta } from './alerta/alerta.module';
 import { UsuarioComponent } from './usuario/usuario.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import localeEs from '@angular/common/locales/es-CO';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localeEs, 'es');
+
 
 @NgModule({
   declarations: [

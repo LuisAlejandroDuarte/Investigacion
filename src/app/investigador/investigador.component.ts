@@ -5,7 +5,7 @@ import { Usuario } from 'src/entidad/usuario/entidad.usuario';
 import { Mensaje, TipoMensaje } from 'src/entidad/mensaje/entidad.mensaje';
 import { AlertaComponent } from '../alerta/alerta';
 import { ErrorComponent } from '../error/error';
-import { faCoffee,faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee,faUser,faCalendar } from '@fortawesome/free-solid-svg-icons';
 declare const $: any;
 
 @Component({
@@ -16,6 +16,7 @@ declare const $: any;
 
 export class InvestigadorComponent {
   faUser = faUser;
+  faCalendar =faCalendar;
   constructor(   
     ){}
   
