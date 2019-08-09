@@ -6,6 +6,7 @@ import { Mensaje, TipoMensaje } from 'src/entidad/mensaje/entidad.mensaje';
 import { AlertaComponent } from '../alerta/alerta';
 import { ErrorComponent } from '../error/error';
 import { faCoffee,faUser,faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { TipoDocumento, Centro } from 'src/entidad/investigador/entidad.investigador';
 declare const $: any;
 
 @Component({
@@ -18,7 +19,9 @@ export class InvestigadorComponent {
   faUser = faUser;
   faCalendar =faCalendar;
   fechaNacimiento :{};
-  constructor(   
+  listTipoDocumento : TipoDocumento[];
+  listCentro:Centro[];
+  constructor(private serviceInvestigador:InvestigadorService  
     ){}
   
     public ngOnInit() {
@@ -28,6 +31,19 @@ export class InvestigadorComponent {
         "month": 6,
         "day": 24
       }
+
+      let tipo = new TipoDocumento();
+      tipo.accion="listTipoDocumento";
+
+      this.serviceInvestigador.getTipoDocumento(tipo).subscribe(result=>{
+        this.listTipoDocumento = result;
+        let centro = new Centro();
+        centro.accion="listCentro";
+        this.serviceInvestigador.getListCentro(centro).subscribe(centro=>{
+          this.listCentro = centro;
+        })
+
+      })
 
       $('#iconoEspera').hide();
     }

@@ -20,3 +20,20 @@ export class Investigador
     inv_tica_codi:number;    
     accion:string;
 }
+
+export class TipoDocumento
+{
+    tid_codi:number;
+    tid_nomb:string;
+
+    accion:string;
+}
+
+export class Centro
+{
+    cen_codi:number;
+    cen_zona_codi:number;
+    cen_nomb:string;    
+
+    accion:string;
+}

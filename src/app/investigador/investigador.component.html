@@ -27,10 +27,12 @@
                               <div class="row">
                                   <div class="col-sm">                  
                                       <div class="form-group">
-                                          <label for="exampleInputEmail1">Tipo Documento</label>
+                                          <label>Tipo Documento</label>
                                           <select class="form-control form-control-sm">
                                             <option>Seleccione ...</option>
-                                        
+                                            <option *ngFor="let tipo of listTipoDocumento" [value]="tipo.TID_CODI">
+                                               {{tipo.TID_NOMB}}
+                                            </option>
                                           </select>
                                         </div>       
                                   </div>                  
@@ -90,8 +92,11 @@
                              <div class="form-group">
                                 <label>* Centro</label>               
                                 <select class="form-control form-control-sm">
-                                  <option>Seleccione ...</option>
-                                </select>
+                                 <option>Seleccione ...</option>
+                                 <option *ngFor="let centro of listCentro" [value]="centro">
+                                    {{centro.CEN_NOMB}}
+                                 </option>
+                               </select>
                              </div>                                                     
                           </div>  
                           <div class="col-sm">
