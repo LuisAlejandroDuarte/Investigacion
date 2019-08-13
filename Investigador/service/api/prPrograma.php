@@ -5,11 +5,11 @@
 
   $Accion = $data['accion'];  
 
-    if ($Accion=='listCentro')
+    if ($Accion=='listPrograma')
     {
-      $SQL ="SELECT * from sgi_cent";
+      $SQL ="SELECT * from sgi_prog_acad";
       $execute = new  DataBase();
-        $result= $execute->executeSql($SQL);        
-        echo json_encode($result);      
+      $result= $execute->executeSql($SQL);        
+      echo json_encode($result);      
     }
  ?>

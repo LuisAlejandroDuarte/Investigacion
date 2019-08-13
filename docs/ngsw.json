@@ -1,0 +1,82 @@
+{
+  "configVersion": 1,
+  "timestamp": 1565707487593,
+  "index": "C:/Program Files/Git/investigador/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "C:/Program Files/Git/investigador/favicon.ico",
+        "C:/Program Files/Git/investigador/index.html",
+        "C:/Program Files/Git/investigador/main-es2015.39c70a2767a1f791724e.js",
+        "C:/Program Files/Git/investigador/main-es5.e02af88f2d9e3cea2983.js",
+        "C:/Program Files/Git/investigador/polyfills-es2015.e4a1185e6871d06f842f.js",
+        "C:/Program Files/Git/investigador/polyfills-es5.68227219af2d6f215f11.js",
+        "C:/Program Files/Git/investigador/runtime-es2015.10a1f01eef199006286d.js",
+        "C:/Program Files/Git/investigador/runtime-es5.9ad22a88fcc70a015907.js",
+        "C:/Program Files/Git/investigador/scripts.7d7f2c51330556767d6d.js",
+        "C:/Program Files/Git/investigador/styles.9995807fbbac1313a306.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "C:/Program Files/Git/investigador/assets/icons/icon-128x128.png",
+        "C:/Program Files/Git/investigador/assets/icons/icon-144x144.png",
+        "C:/Program Files/Git/investigador/assets/icons/icon-152x152.png",
+        "C:/Program Files/Git/investigador/assets/icons/icon-192x192.png",
+        "C:/Program Files/Git/investigador/assets/icons/icon-384x384.png",
+        "C:/Program Files/Git/investigador/assets/icons/icon-512x512.png",
+        "C:/Program Files/Git/investigador/assets/icons/icon-72x72.png",
+        "C:/Program Files/Git/investigador/assets/icons/icon-96x96.png",
+        "C:/Program Files/Git/investigador/assets/img/load.gif"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "C:/Program Files/Git/investigador/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "C:/Program Files/Git/investigador/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "C:/Program Files/Git/investigador/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "C:/Program Files/Git/investigador/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "C:/Program Files/Git/investigador/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "C:/Program Files/Git/investigador/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "C:/Program Files/Git/investigador/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "C:/Program Files/Git/investigador/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "C:/Program Files/Git/investigador/assets/img/load.gif": "2de2e215684dac528b3139c7cf1cfdff17d6cb77",
+    "C:/Program Files/Git/investigador/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "C:/Program Files/Git/investigador/index.html": "2021776abef514593bd767738d1a4770d0b29756",
+    "C:/Program Files/Git/investigador/main-es2015.39c70a2767a1f791724e.js": "27f4ddb1712d5f4fa08d7e44a3f9e6ca268ce78b",
+    "C:/Program Files/Git/investigador/main-es5.e02af88f2d9e3cea2983.js": "088ff0988b5c0570d03bf2330f92c760bf5c8361",
+    "C:/Program Files/Git/investigador/polyfills-es2015.e4a1185e6871d06f842f.js": "a514da8731833287c9583044e9d512d74c45312a",
+    "C:/Program Files/Git/investigador/polyfills-es5.68227219af2d6f215f11.js": "14763ce4891bdc3d87cd41d049fcd1f314032eb8",
+    "C:/Program Files/Git/investigador/runtime-es2015.10a1f01eef199006286d.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "C:/Program Files/Git/investigador/runtime-es5.9ad22a88fcc70a015907.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "C:/Program Files/Git/investigador/scripts.7d7f2c51330556767d6d.js": "22af41ad07e708c31f68622c10ac7c9208bae800",
+    "C:/Program Files/Git/investigador/styles.9995807fbbac1313a306.css": "e0748e91143a135db3534412dc173fd182fb895e"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

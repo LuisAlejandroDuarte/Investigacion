@@ -1,5 +1,7 @@
 <?php
-define('DB_SERVER','127.0.0.1');
+
+
+define('DB_SERVER','localhost');
 define('DB_NAME','grupogua_investigador');
 define('DB_USER','grupogua_jmedicru');
 define('DB_PASS','MbCj199803#');

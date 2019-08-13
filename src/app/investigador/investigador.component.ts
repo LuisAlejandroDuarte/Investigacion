@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { InvestigadorService } from 'src/service/investigador/serviceInvestigador';
+import { InvestigadorService } from 'src/service/serviceInvestigador';
 import {Md5} from 'ts-md5/dist/md5';
 import { Usuario } from 'src/entidad/usuario/entidad.usuario';
 import { Mensaje, TipoMensaje } from 'src/entidad/mensaje/entidad.mensaje';
@@ -11,6 +11,10 @@ import { CentroService } from 'src/service/centro/serviceCentro';
 import { Centro } from 'src/entidad/centro/entidad.centro';
 import { ZonaService } from 'src/service/zona/serviceZona';
 import { Zona } from 'src/entidad/zona/entidad.zona';
+import { Programa } from 'src/entidad/programa/entidad.programa';
+import { ProgramaService } from 'src/service/programa/servicePrograma';
+import { Escuela } from 'src/entidad/escuela/entidad.escuela';
+import { EscuelaService } from 'src/service/escuela/serviceEscuela';
 declare const $: any;
 
 @Component({
@@ -30,11 +34,14 @@ export class InvestigadorComponent {
   listTipoDocumento : TipoDocumento[];
   listCentro:Centro[];
   listZona:Zona[];
-  selCentro:Centro;
+  listPrograma:Programa[];
+  listEscuela:Escuela[];
 
   constructor(private serviceInvestigador:InvestigadorService,
     private serviceCentro:CentroService,
-    private serviceZona:ZonaService  
+    private serviceZona:ZonaService,
+    private servicePrograma:ProgramaService,
+    private serviceEscuela:EscuelaService  
     ){}
   
     public ngOnInit() {
@@ -54,7 +61,22 @@ export class InvestigadorComponent {
         centro.accion="listCentro";
         this.serviceCentro.getListCentro(centro).subscribe(centro=>{
           this.listCentro = centro;
-          $('#iconoEspera').hide();
+
+          let programa =  new Programa();
+          programa.accion="listPrograma";
+          this.servicePrograma.getListPrograma(programa).subscribe(progra=>{
+            this.listPrograma=progra;
+            $('#iconoEspera').hide();
+          },error=> {
+            $('#iconoEspera').hide();
+            console.clear();
+            var errorComponent = new ErrorComponent();            
+            this.mensaje =errorComponent.GenerarMensaje(error);          
+            this.mensaje.nVentana="IdError";
+            this.alerta.onChangedMyId("IdError");                      
+            $('#IdError').show();
+          });
+          
         },error=> {
           $('#iconoEspera').hide();
           console.clear();
@@ -73,10 +95,9 @@ export class InvestigadorComponent {
         this.mensaje.nVentana="IdError";
         this.alerta.onChangedMyId("IdError");                      
         $('#IdError').show();  
-  })
-
-
+      })
     }
+    
     onChangeCentro(event)
     {
       let centro = new Centro();
@@ -85,6 +106,26 @@ export class InvestigadorComponent {
       $('#iconoEspera').show();
       this.serviceZona.getZonaByCentro(centro).subscribe(result=>{
         this.listZona=result;
+        $('#iconoEspera').hide();
+      },error=> {
+        $('#iconoEspera').hide();
+        console.clear();
+        var errorComponent = new ErrorComponent();            
+        this.mensaje =errorComponent.GenerarMensaje(error);          
+        this.mensaje.nVentana="IdError";
+        this.alerta.onChangedMyId("IdError");                      
+        $('#IdError').show();  
+        });      
+    }
+
+    onChangePrograma(event)
+    {
+      let programa = new Programa();
+      programa.pac_escu_codi =event.target.value;
+      programa.accion="listEscuelaByPrograma";
+      $('#iconoEspera').show();
+      this.serviceEscuela.getListEscuelaByPrograma(programa).subscribe(result=>{
+        this.listEscuela =result;
         $('#iconoEspera').hide();
       },error=> {
         $('#iconoEspera').hide();

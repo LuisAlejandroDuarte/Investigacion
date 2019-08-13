@@ -9,7 +9,7 @@
     {
       $SQL ="SELECT * from sgi_prog_acad";
       $execute = new  DataBase();
-        $result= $execute->executeSql($SQL);        
-        echo json_encode($result);      
+      $result= $execute->executeSql($SQL);        
+      echo json_encode($result);      
     }
  ?>

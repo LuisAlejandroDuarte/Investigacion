@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertaComponent } from '../alerta/alerta';
-import { InvestigadorService } from 'src/service/investigador/serviceInvestigador';
+import { InvestigadorService } from 'src/service/serviceInvestigador';
 import { Mensaje, TipoMensaje } from 'src/entidad/mensaje/entidad.mensaje';
 import { Usuario } from 'src/entidad/usuario/entidad.usuario';
 import { Md5 } from 'ts-md5';

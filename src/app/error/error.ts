@@ -13,7 +13,7 @@ export class ErrorComponent extends Mensaje
         var mensaje= new Mensaje();
             mensaje.id=error.status;
             mensaje.titulo="Error";
-            mensaje.cuerpo=error.message;
+            mensaje.cuerpo= error.message.substring(0,100);
             mensaje.tipo=TipoMensaje.Error;
             
         return mensaje;

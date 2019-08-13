@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Programa } from 'src/entidad/programa/entidad.programa';
+import { Escuela } from 'src/entidad/escuela/entidad.escuela';
 
 
 const httpOptions = {
@@ -9,15 +10,15 @@ const httpOptions = {
   };
 
 @Injectable()
-export class ProgramaService {
+export class EscuelaService {
 
     constructor(
         public http: HttpClient
     ){}
     
-    getListPrograma (programa:Programa):Observable<Programa[]>{
+    getListEscuelaByPrograma (programa:Programa):Observable<Escuela[]>{
       const headers = new HttpHeaders().set('content-type', 'application/json');  
-      return this.http.post<Programa[]>('Investigacion/src/service/programa/prPrograma.php',JSON.stringify(programa), {headers});
+      return this.http.post<Escuela[]>('Investigacion/src/service/escuela/prEscuela.php',JSON.stringify(programa), {headers});
     }  
 
 }

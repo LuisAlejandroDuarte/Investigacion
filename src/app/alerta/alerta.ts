@@ -35,6 +35,7 @@ export class AlertaComponent implements OnInit {
        
         this.dataAlerta.botones.push(boton1);
         this.dataAlerta.botones.push(boton2);
+  
     }
 
     onClicBoton1() {
