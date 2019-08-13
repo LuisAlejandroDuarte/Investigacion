@@ -47,5 +47,8 @@ export class InvestigadorComponent {
 
       $('#iconoEspera').hide();
     }
+    onOptionsSelected(value:string){
+      console.log("the selected value is " + value);
+ }
 }
 

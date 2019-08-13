@@ -91,9 +91,9 @@
                           <div class="col-sm">
                              <div class="form-group">
                                 <label>* Centro</label>               
-                                <select class="form-control form-control-sm">
+                                <select class="form-control form-control-sm"  (ngModelChange)='onOptionsSelected($event)'>
                                  <option>Seleccione ...</option>
-                                 <option *ngFor="let centro of listCentro" [value]="centro">
+                                 <option *ngFor="let centro of listCentro" [value]="centro" >
                                     {{centro.CEN_NOMB}}
                                  </option>
                                </select>
