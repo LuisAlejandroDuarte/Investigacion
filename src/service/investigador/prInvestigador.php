@@ -24,13 +24,6 @@
         echo json_encode($result);      
     }
 
-    if ($Accion=='listCentro')
-    {
-      $SQL ="SELECT * from sgi_cent";
-      $execute = new  DataBase();
-        $result= $execute->executeSql($SQL);
-        
-        echo json_encode($result);      
-    }
+    
 
  ?>
