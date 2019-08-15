@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { FormsModule } from '@angular/forms';  //<<<< import it here
 import { AppRoutingModule, AppRoutes } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,3 +35,6 @@ registerLocaleData(localeEs, 'es');
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+

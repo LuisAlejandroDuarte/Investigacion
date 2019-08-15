@@ -41,7 +41,7 @@ export class Mensaje
             this.pie="";
             this.tipo=TipoMensaje.Advertencia;
             this.botones= new Array(2); 
-            this.botones[0] = new Botones();  
+            this.botones[0] = new Botones;  
             this.botones[0].label="Aceptar";
             this.botones[0].visible=true;
 

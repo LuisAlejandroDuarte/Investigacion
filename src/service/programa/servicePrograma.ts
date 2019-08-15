@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Programa } from 'src/entidad/programa/entidad.programa';
+import { environment } from 'src/environments/environment';
 
 
 const httpOptions = {
@@ -10,14 +11,14 @@ const httpOptions = {
 
 @Injectable()
 export class ProgramaService {
-
+  baseUrl =environment.apiUrl;
     constructor(
         public http: HttpClient
     ){}
     
     getListPrograma (programa:Programa):Observable<Programa[]>{
       const headers = new HttpHeaders().set('content-type', 'application/json');  
-      return this.http.post<Programa[]>('Investigacion/src/service/programa/prPrograma.php',JSON.stringify(programa), {headers});
+      return this.http.post<Programa[]>(this.baseUrl + 'prPrograma.php',JSON.stringify(programa), {headers});
     }  
 
 }
