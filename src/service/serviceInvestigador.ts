@@ -11,22 +11,8 @@ const httpOptions = {
   };
 
 @Injectable()
-<<<<<<< HEAD
-export class InvestigadorService implements HttpInterceptor {
-  intercept(req: import("@angular/common/http").HttpRequest<any>, next: import("@angular/common/http").HttpHandler): Observable<import("@angular/common/http").HttpEvent<any>> {
-
-      var url = req.url;
-
-    throw new Error("Method not implemented.");
-   
-
-  }
- 
-
-=======
 export class InvestigadorService {
     baseUrl =environment.apiUrl;
->>>>>>> a02d8412846b8ec3bba48e8c47983b87714a0a0b
     constructor(
         public http: HttpClient
     ){}
