@@ -1,4 +1,4 @@
-export class Centro
+export class  Centro
 {
     cen_codi:number;
     cen_zona_codi:number;

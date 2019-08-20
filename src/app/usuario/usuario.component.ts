@@ -27,7 +27,7 @@ export class UsuarioComponent implements OnInit {
 
   onClickValidarUsuario(event)
   {
-    let usuario = new Usuario();
+    let usuario = new Usuario;
     if (this.user!=undefined && this.pass!=undefined)
     {    
         usuario.use_usua= this.user;    

@@ -52,7 +52,7 @@ export class InvestigadorComponent {
         "day": 24
       }
 
-      let tipo = new TipoDocumento();
+      let tipo  =  new TipoDocumento();
       tipo.accion="listTipoDocumento";
       $('#iconoEspera').show();
       this.serviceInvestigador.getTipoDocumento(tipo).subscribe(result=>{
@@ -62,7 +62,7 @@ export class InvestigadorComponent {
         this.serviceCentro.getListCentro(centro).subscribe(centro=>{
           this.listCentro = centro;
 
-          let programa =  new Programa();
+          let programa = new Programa();
           programa.accion="listPrograma";
           this.servicePrograma.getListPrograma(programa).subscribe(progra=>{
             this.listPrograma=progra;
@@ -120,7 +120,7 @@ export class InvestigadorComponent {
 
     onChangePrograma(event)
     {
-      let programa = new Programa();
+      let programa =new  Programa();
       programa.pac_escu_codi =event.target.value;
       programa.accion="listEscuelaByPrograma";
       $('#iconoEspera').show();
