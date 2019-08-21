@@ -7,7 +7,7 @@
     
     if ($Accion=="login")
     {
-        $SQL="SELECT * FROM sgi_user As u INNER JOIN sgi_inve As i on u.use_codi=i.inv_codi_usua WHERE u.USE_USUA = '" . $data['use_usua'] . "' AND u.USE_CLAV='" . $data['use_clav'] . "'";
+        $SQL="SELECT i.inv_codi FROM sgi_user As u INNER JOIN sgi_inve As i on u.use_codi=i.inv_codi_usua WHERE u.USE_USUA = '" . $data['use_usua'] . "' AND u.USE_CLAV='" . $data['use_clav'] . "'";
 
         $execute = new  DataBase();
         $result= $execute->executeSql($SQL);
@@ -24,6 +24,14 @@
         echo json_encode($result);      
     }
 
-    
+    if ($Accion=="GET")
+    {
+        $SQL="SELECT * FROM  sgi_inve   WHERE inv_codi = " . $data['inv_codi'] ;
+
+        $execute = new  DataBase();
+        $result= $execute->executeSql($SQL);
+        
+        echo json_encode($result);      
+    }
 
  ?>

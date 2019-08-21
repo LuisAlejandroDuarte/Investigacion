@@ -16,7 +16,7 @@ export const AppRoutes: Routes = [
     component: UsuarioComponent    
   },
   {
-    path: 'investigador',
+    path: 'investigador/:id',
     component: InvestigadorComponent 
   }]
 

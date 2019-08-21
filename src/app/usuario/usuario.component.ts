@@ -40,7 +40,7 @@ export class UsuarioComponent implements OnInit {
           if (result[0]!=null)
           {
               $('#iconoEspera').hide();
-              this.router.navigate(["/investigador"]);  
+              this.router.navigate(["/investigador/" + result[0].inv_codi ]);  
           }
           else
             {

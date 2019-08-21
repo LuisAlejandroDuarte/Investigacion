@@ -6,7 +6,7 @@ import { Mensaje, TipoMensaje } from 'src/entidad/mensaje/entidad.mensaje';
 import { AlertaComponent } from '../alerta/alerta';
 import { ErrorComponent } from '../error/error';
 import { faUser,faCalendar } from '@fortawesome/free-solid-svg-icons';
-import { TipoDocumento } from 'src/entidad/investigador/entidad.investigador';
+import { TipoDocumento, Investigador } from 'src/entidad/investigador/entidad.investigador';
 import { CentroService } from 'src/service/centro/serviceCentro';
 import { Centro } from 'src/entidad/centro/entidad.centro';
 import { ZonaService } from 'src/service/zona/serviceZona';
@@ -17,6 +17,7 @@ import { Escuela } from 'src/entidad/escuela/entidad.escuela';
 import { EscuelaService } from 'src/service/escuela/serviceEscuela';
 import { TipoCargo } from 'src/entidad/tipoCargo/entidad.tipoCargo';
 import { TipoCargoService } from 'src/service/tipoCargo/service.tipoCargo';
+import { ActivatedRoute } from '@angular/router';
 declare const $: any;
 
 @Component({
@@ -40,16 +41,19 @@ export class InvestigadorComponent {
   listPrograma:Programa[];
   listEscuela:Escuela[];
   listTipoCargo:TipoCargo[];
+  investigador:Investigador;
   constructor(private serviceInvestigador:InvestigadorService,
     private serviceCentro:CentroService,
     private serviceZona:ZonaService,
     private servicePrograma:ProgramaService,
     private serviceEscuela:EscuelaService,
-    private serviceTipoCargo:TipoCargoService 
+    private serviceTipoCargo:TipoCargoService,
+    private activeRoute:ActivatedRoute
     ){}
   
     public ngOnInit() {
-      
+      this.investigador = new Investigador();
+      this.investigador.inv_codi =parseInt(this.activeRoute.snapshot.paramMap.get('id'));   
       this.fechaNacimiento = {
         "year": 2019,
         "month": 6,
@@ -75,6 +79,7 @@ export class InvestigadorComponent {
               tipoCargo.accion="listTipoCargo";
               this.serviceTipoCargo.getListTipoCargo(tipoCargo).subscribe(res=>{
                 this.listTipoCargo=res;
+                this.mostrarInvestigador();
                 $('#iconoEspera').hide();
               },error=> {
                 $('#iconoEspera').hide();
@@ -161,6 +166,21 @@ export class InvestigadorComponent {
               $('#IdError').hide();
   
     }
+
+    mostrarInvestigador()
+    {
+      $('#iconoEspera').show();
+        this.investigador.accion="GET";
+        this.serviceInvestigador.getInvestigador(this.investigador).subscribe(res=>{
+          if (res[0]!=null)
+          {
+            this.selTipoDocumento=this.listTipoDocumento.filter(x=>x.tid_codi==res[0].INV_TIPO_DOCU_CODI)[0];            
+            $('#iconoEspera').hide();
+          }
+        });
+    }
+
+
 
     onGuardar()
     {
