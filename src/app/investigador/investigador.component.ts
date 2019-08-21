@@ -18,7 +18,9 @@ import { EscuelaService } from 'src/service/escuela/serviceEscuela';
 import { TipoCargo } from 'src/entidad/tipoCargo/entidad.tipoCargo';
 import { TipoCargoService } from 'src/service/tipoCargo/service.tipoCargo';
 import { ActivatedRoute } from '@angular/router';
+import {  NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 declare const $: any;
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-investigador',
@@ -33,15 +35,16 @@ export class InvestigadorComponent {
   mensaje:Mensaje;
   faUser = faUser;
   faCalendar =faCalendar;
-  fechaNacimiento :{};
+  fechaNacimiento :NgbDateStruct;
   listTipoDocumento : TipoDocumento[];
-  selTipoDocumento:TipoDocumento;
+  selTipoDocumento:number;
   listCentro:Centro[];
   listZona:Zona[];
   listPrograma:Programa[];
   listEscuela:Escuela[];
   listTipoCargo:TipoCargo[];
   investigador:Investigador;
+  
   constructor(private serviceInvestigador:InvestigadorService,
     private serviceCentro:CentroService,
     private serviceZona:ZonaService,
@@ -54,11 +57,6 @@ export class InvestigadorComponent {
     public ngOnInit() {
       this.investigador = new Investigador();
       this.investigador.inv_codi =parseInt(this.activeRoute.snapshot.paramMap.get('id'));   
-      this.fechaNacimiento = {
-        "year": 2019,
-        "month": 6,
-        "day": 24
-      }
 
       let tipo  =  new TipoDocumento();
       tipo.accion="listTipoDocumento";
@@ -173,8 +171,13 @@ export class InvestigadorComponent {
         this.investigador.accion="GET";
         this.serviceInvestigador.getInvestigador(this.investigador).subscribe(res=>{
           if (res[0]!=null)
-          {
-            this.selTipoDocumento=this.listTipoDocumento.filter(x=>x.tid_codi==res[0].INV_TIPO_DOCU_CODI)[0];            
+          {                                   
+            this.investigador=res[0];                   
+            this.fechaNacimiento = {
+              "year": moment(res[0].INV_FECH_NACI).year(),
+              "month":moment(res[0].INV_FECH_NACI).month()+1,
+              "day": moment(res[0].INV_FECH_NACI).date()
+            }
             $('#iconoEspera').hide();
           }
         });

@@ -28,8 +28,7 @@ export class InvestigadorService {
       return this.http.post<TipoDocumento[]>(this.baseUrl + 'prInvestigador.php',JSON.stringify(tipo), {headers});
     }
 
-    getInvestigador(investigador:Investigador) : Observable<Investigador>{
-                   
+    getInvestigador(investigador:Investigador) : Observable<Investigador>{                   
        return this.http.post<Investigador>(this.baseUrl + 'prInvestigador.php',JSON.stringify(investigador), httpOptions);
      }  
 }
