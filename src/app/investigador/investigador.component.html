@@ -22,8 +22,8 @@
                                   <div class="col-sm">                  
                                       <div class="form-group">
                                           <label>Tipo Documento</label>
-                                          <select class="form-control form-control-sm">
-                                            <option>Seleccione ...</option>
+                                          <select class="form-control form-control-sm" [(ngModel)]="selTipoDocumento">
+                                            <option [value]="-1">Seleccione ...</option>
                                             <option *ngFor="let tipo of listTipoDocumento" [value]="tipo.TID_CODI">
                                                {{tipo.TID_NOMB}}
                                             </option>
@@ -136,13 +136,16 @@
                             </div>                              
                              <div class="col-sm">
                                 <div class="form-group">
-                                   <label>* Tipo Cargo</label>               
-                                   <input class="form-control form-control-sm" id="exampleFormControlSelect1" />
+                                <label>* Tipo Cargo</label>              
+                                 <select class="form-control form-control-sm">
+                                  <option>Seleccione ...</option>
+                                  <option *ngFor="let tipoCargo of listTipoCargo" [value]="tipoCargo.TICA_CODI">
+                                    {{tipoCargo.TICA_NOMB}}
+                                 </option>
+                                </select>                                  
                                 </div>                                                     
                              </div>                                                           
-                          </div>                      
-              
-                    
+                          </div>                                                        
                 </ng-template>
               </ngb-tab>
               <ngb-tab>
@@ -165,7 +168,7 @@
             </ngb-tabset>
         </div>
         <div class="card-footer text-muted">
-       
+          <button type="button" class="btn btn-primary btn-sm" (click)="onGuardar()">Guardar</button>
         </div>
       </div> 
 

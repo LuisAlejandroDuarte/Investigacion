@@ -7,6 +7,8 @@ import { CentroService } from 'src/service/centro/serviceCentro';
 import { ZonaService } from 'src/service/zona/serviceZona';
 import { ProgramaService } from 'src/service/programa/servicePrograma';
 import { EscuelaService } from 'src/service/escuela/serviceEscuela';
+import { TipoDocumentoService } from 'src/service/tipoDocumento/serviceTipoDocumento';
+import { TipoCargoService } from 'src/service/tipoCargo/service.tipoCargo';
 
 export const AppRoutes: Routes = [
   {
@@ -22,6 +24,7 @@ export const AppRoutes: Routes = [
   imports:[RouterModule.forRoot(AppRoutes,{ useHash: true })],
   exports: [RouterModule],
   providers:[InvestigadorService,CentroService,
-    ZonaService,ProgramaService,EscuelaService]
+    ZonaService,ProgramaService,EscuelaService,TipoDocumentoService,
+  TipoCargoService]
 })
 export class AppRoutingModule { }

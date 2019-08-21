@@ -15,6 +15,8 @@ import { Programa } from 'src/entidad/programa/entidad.programa';
 import { ProgramaService } from 'src/service/programa/servicePrograma';
 import { Escuela } from 'src/entidad/escuela/entidad.escuela';
 import { EscuelaService } from 'src/service/escuela/serviceEscuela';
+import { TipoCargo } from 'src/entidad/tipoCargo/entidad.tipoCargo';
+import { TipoCargoService } from 'src/service/tipoCargo/service.tipoCargo';
 declare const $: any;
 
 @Component({
@@ -32,16 +34,18 @@ export class InvestigadorComponent {
   faCalendar =faCalendar;
   fechaNacimiento :{};
   listTipoDocumento : TipoDocumento[];
+  selTipoDocumento:TipoDocumento;
   listCentro:Centro[];
   listZona:Zona[];
   listPrograma:Programa[];
   listEscuela:Escuela[];
-
+  listTipoCargo:TipoCargo[];
   constructor(private serviceInvestigador:InvestigadorService,
     private serviceCentro:CentroService,
     private serviceZona:ZonaService,
     private servicePrograma:ProgramaService,
-    private serviceEscuela:EscuelaService  
+    private serviceEscuela:EscuelaService,
+    private serviceTipoCargo:TipoCargoService 
     ){}
   
     public ngOnInit() {
@@ -66,7 +70,21 @@ export class InvestigadorComponent {
           programa.accion="listPrograma";
           this.servicePrograma.getListPrograma(programa).subscribe(progra=>{
             this.listPrograma=progra;
-            $('#iconoEspera').hide();
+
+            let tipoCargo= new TipoCargo();
+              tipoCargo.accion="listTipoCargo";
+              this.serviceTipoCargo.getListTipoCargo(tipoCargo).subscribe(res=>{
+                this.listTipoCargo=res;
+                $('#iconoEspera').hide();
+              },error=> {
+                $('#iconoEspera').hide();
+                console.clear();
+                var errorComponent = new ErrorComponent();            
+                this.mensaje =errorComponent.GenerarMensaje(error);          
+                this.mensaje.nVentana="IdError";
+                this.alerta.onChangedMyId("IdError");                      
+                $('#IdError').show();
+              });              
           },error=> {
             $('#iconoEspera').hide();
             console.clear();
@@ -142,6 +160,11 @@ export class InvestigadorComponent {
       if (event.nVentana=="IdError")
               $('#IdError').hide();
   
+    }
+
+    onGuardar()
+    {
+      var sel = this.selTipoDocumento;
     }
 
 }
