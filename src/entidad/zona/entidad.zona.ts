@@ -1,8 +1,8 @@
 export class Zona
 {
-    zon_codi:number;
-    zon_nomb:string;    
-    zon_sigl:string;
+    ZON_CODI:number;
+    ZON_NOMB:string;    
+    ZON_SIGL:string;
 
     accion:string;
 }

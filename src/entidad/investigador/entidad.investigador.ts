@@ -1,30 +1,30 @@
 
 export class Investigador
 {
-    inv_codi:number;
-    inv_iden:string;
-    inv_tipo_docu_codi:number;
-    inv_nomb:string;
-    inv_apel:string;
-    inv_link_cvla:string;
-    inv_fech_naci:Date;
-    inv_cent_codi:number;
-    inv_prog_acad_codi:number;
-    inv_mail :string;
-    inv_tele_celu:string;
-    inv_foto:string;
-    inv_user:string;
-    inv_pass:string;
-    inv_tipo:number;
-    inv_codi_usua:number;
-    inv_tica_codi:number;    
+    INV_CODI:number;
+    INV_IDEN:string;
+    INV_TIPO_DOCU_CODI:number;
+    INV_NOMB:string;
+    INV_APEL:string;
+    INV_LINK_CVLA:string;
+    INV_FECH_NACI:Date;
+    INV_CENT_CODI:number;
+    INV_PROG_ACAD_CODI:number;
+    INV_MAIL :string;
+    INV_TELE_CELU:string;
+    INV_FOTO:string;
+    INV_USER:string;
+    INV_PASS:string;
+    INV_TIPO:number;
+    INV_CODI_USUA:number;
+    INV_TICA_CODI:number;    
     accion:string;
 }
 
 export class TipoDocumento
 {
-    tid_codi:number;
-    tid_nomb:string;
+    TID_CODI:number;
+    TID_NOMB:string;
 
     accion:string;
 }

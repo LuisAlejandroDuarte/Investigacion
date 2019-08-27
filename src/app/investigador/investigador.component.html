@@ -85,7 +85,7 @@
                           <div class="col-sm">
                              <div class="form-group">
                                 <label>* Centro</label>               
-                                <select class="form-control form-control-sm"  (change)="onChangeCentro($event)">
+                                <select class="form-control form-control-sm" [(ngModel)]="investigador.INV_CENT_CODI"  (change)="onChangeCentro($event)">
                                  <option>Seleccione ...</option>
                                  <option *ngFor="let centro of listCentro" [value]="centro.CEN_ZONA_CODI">
                                     {{centro.CEN_NOMB}}
@@ -95,19 +95,14 @@
                           </div>  
                           <div class="col-sm">
                               <div class="form-group">
-                                 <label>* Zona</label>               
-                                 <select class="form-control form-control-sm">
-                                  <option>Seleccione ...</option>
-                                  <option *ngFor="let zona of listZona" [value]="zona.ZON_CODI">
-                                    {{zona.ZON_NOMB}}
-                                 </option>
-                                </select>
+                                 <label>* Zona</label><br/>
+                                 <label>{{nombreZona}}</label>                                                               
                               </div>                                                     
                            </div>  
                            <div class="col-sm">
                               <div class="form-group">
                                  <label>* Programa</label>               
-                                 <select class="form-control form-control-sm" (change)="onChangePrograma($event)">
+                                 <select class="form-control form-control-sm" [(ngModel)]="investigador.PAC_ESCU_CODI" (change)="onChangePrograma($event)">
                                   <option>Seleccione ...</option>
                                   <option *ngFor="let programa of listPrograma" [value]="programa.PAC_ESCU_CODI">
                                     {{programa.PAC_NOMB}}

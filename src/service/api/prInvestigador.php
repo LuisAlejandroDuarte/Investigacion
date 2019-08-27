@@ -26,7 +26,7 @@
 
     if ($Accion=="GET")
     {
-        $SQL="SELECT * FROM  sgi_inve   WHERE inv_codi = " . $data['inv_codi'] ;
+        $SQL="SELECT * FROM  sgi_inve   WHERE inv_codi = " . $data['INV_CODI'] ;
 
         $execute = new  DataBase();
         $result= $execute->executeSql($SQL);

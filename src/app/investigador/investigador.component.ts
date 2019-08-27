@@ -44,7 +44,9 @@ export class InvestigadorComponent {
   listEscuela:Escuela[];
   listTipoCargo:TipoCargo[];
   investigador:Investigador;
-  
+  zona:Zona;
+  nombreZona:string;
+  programa :Programa;
   constructor(private serviceInvestigador:InvestigadorService,
     private serviceCentro:CentroService,
     private serviceZona:ZonaService,
@@ -56,7 +58,7 @@ export class InvestigadorComponent {
   
     public ngOnInit() {
       this.investigador = new Investigador();
-      this.investigador.inv_codi =parseInt(this.activeRoute.snapshot.paramMap.get('id'));   
+      this.investigador.INV_CODI =parseInt(this.activeRoute.snapshot.paramMap.get('id'));   
 
       let tipo  =  new TipoDocumento();
       tipo.accion="listTipoDocumento";
@@ -122,11 +124,12 @@ export class InvestigadorComponent {
     onChangeCentro(event)
     {
       let centro = new Centro();
-      centro.cen_zona_codi=event.target.value;
+      centro.CEN_ZONA_CODI=event.target.value;
       centro.accion="listZonaByCentro";
       $('#iconoEspera').show();
       this.serviceZona.getZonaByCentro(centro).subscribe(result=>{
         this.listZona=result;
+        this.nombreZona = result[0].ZON_NOMB;        
         $('#iconoEspera').hide();
       },error=> {
         $('#iconoEspera').hide();
@@ -178,8 +181,35 @@ export class InvestigadorComponent {
               "month":moment(res[0].INV_FECH_NACI).month()+1,
               "day": moment(res[0].INV_FECH_NACI).date()
             }
+            let centro = new Centro();
+            centro.CEN_ZONA_CODI=this.investigador.INV_CENT_CODI;
+            centro.accion="listZonaByCentro";
+            $('#iconoEspera').show();
+            this.serviceZona.getZonaByCentro(centro).subscribe(result=>{
+              this.listZona=result;
+              this.nombreZona = result[0].ZON_NOMB;        
+              $('#iconoEspera').hide();
+            },error=> {
+              $('#iconoEspera').hide();
+              console.clear();
+              var errorComponent = new ErrorComponent();            
+              this.mensaje =errorComponent.GenerarMensaje(error);          
+              this.mensaje.nVentana="IdError";
+              this.alerta.onChangedMyId("IdError");                      
+              $('#IdError').show();  
+              });      
+            
+            
             $('#iconoEspera').hide();
           }
+        },error=> {
+          $('#iconoEspera').hide();
+          console.clear();
+          var errorComponent = new ErrorComponent();            
+          this.mensaje =errorComponent.GenerarMensaje(error);          
+          this.mensaje.nVentana="IdError";
+          this.alerta.onChangedMyId("IdError");                      
+          $('#IdError').show();  
         });
     }
 

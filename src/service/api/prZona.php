@@ -7,7 +7,7 @@
 
     if ($Accion=='listZonaByCentro')
     {
-      $SQL ="SELECT * from sgi_zona WHERE zon_codi=" . $data["cen_zona_codi"];
+      $SQL ="SELECT * from sgi_zona WHERE zon_codi=" . $data["CEN_ZONA_CODI"];
       $execute = new  DataBase();
         $result= $execute->executeSql($SQL);        
         echo json_encode($result);      

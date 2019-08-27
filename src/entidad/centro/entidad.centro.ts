@@ -1,8 +1,8 @@
 export class  Centro
 {
-    cen_codi:number;
-    cen_zona_codi:number;
-    cen_nomb:string;    
+    CEN_CODI:number;
+    CEN_ZONA_CODI:number;
+    CEN_NOMB:string;    
 
     accion:string;
 }
